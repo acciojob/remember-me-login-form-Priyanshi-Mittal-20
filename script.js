@@ -4,6 +4,11 @@ let userName=document.getElementById("username")
 let checkBox=document.getElementById("checkbox")
 let password=document.getElementById("password")
 let existingBtn=document.getElementById("existing")
+window.addEventListener("load", () => {
+  if (localStorage.getItem("username")) {
+    existingBtn.style.display = "block";
+  }
+});
 submitBtn.addEventListener("click",handle)
 function handle(e)
 {
@@ -11,8 +16,8 @@ function handle(e)
 	alert(`Logged in as ${userName.value}` );
 	if(checkBox.checked)
 	{
-		localStorage.setItem("username":userName.value)
-		localStorage.setItem("password":password.value)
+		localStorage.setItem("username",userName.value)
+		localStorage.setItem("password",password.value)
 		existingBtn.style.display="block"
 	}
 	else
